@@ -7,7 +7,7 @@ if(!isset($_SESSION['user_add']) || empty($_SESSION['user_add'])){
 };
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    unset($_SESSION['user_add']);
+ 
 if (isset($_POST['email']) && !empty($_POST['email'])) {
     $email = $_POST['email'];
 
@@ -39,17 +39,19 @@ if ($email && $password) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-    if (password_verify($password, $user['password'])) {
+    if ($user && password_verify($password, $user['password'])) {
         $_SESSION["user"] = [
-                "iduser" => $user["iduser"],
-                "email" => $user["email"]
+                "iduser" => $user["id"],
+                "email" => $user["email"],
+                "role" =>$user["role"]
             ];
         header("location:index.php");
+        exit;
     } else {
         echo "La connexion a échoué !";
     }
 
-
+   unset($_SESSION['user_add']);
 
 }
 

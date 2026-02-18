@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_add']) || empty($_SESSION['user_add'])){
 
 // Traiter uniquement si formulaire soumis
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    unset($_SESSION['user_add']);
+
 if(!isset($_POST['userr']) || $_POST['userr'] !== $_SESSION['user_add']){
     die('Erreur: Token invalide');
 }
@@ -62,7 +62,8 @@ if(isset($email)&& isset($password)&& isset($hashedPassword)){
     ]);
     echo '<p>user ajouté avec succes</p>';
     header("location:connexion.php");
-
+    unset($_SESSION['user_add']);
+    exit;
 }
 }
 
