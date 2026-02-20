@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+
+
 //creation token
 if(!isset($_SESSION['user_add']) || empty($_SESSION['user_add'])){
     $_SESSION['user_add'] = bin2hex(random_bytes(32));
@@ -65,6 +67,7 @@ if ($email && $password) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -74,6 +77,7 @@ if ($email && $password) {
         <input class="password" name="password" type="password" placeholder="password">
         <input class="envoie margt" type="submit" value="Se connecter" id="valdiation">
     </form>
+    <a href="inscription.php">S'inscrire</a>
 </body>
 
 </html>

@@ -77,6 +77,7 @@ if(isset($email)&& isset($password)&& isset($hashedPassword)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="inscription.php" method="post">
@@ -95,6 +96,6 @@ if(isset($email)&& isset($password)&& isset($hashedPassword)){
         </select>
         <button type="submit">Ajouter</button>
     </form>
-    <a href="connexion.php"></a>
+    <a href="connexion.php">Se connecter</a>
 </body>
 </html>

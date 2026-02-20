@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+
+if(!isset($_SESSION['user'])){
+    header("Location: inscription.php");
+    exit();
+}
 //creation token
 if (!isset($_SESSION['token_titre_add']) || empty($_SESSION['token_titre_add'])) {
     $_SESSION['token_titre_add'] = bin2hex(random_bytes(32));
@@ -101,9 +106,11 @@ $role = $_SESSION['user']['role'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <a href="deconnexion.php">Se déconnecter</a> 
     <?php if ($role === 'admin'): ?>
         <form action="" method="post">
             <input type="hidden" name="token" value="<?= $_SESSION['token_titre_add']; ?>">
@@ -125,7 +132,7 @@ $role = $_SESSION['user']['role'];
 
             foreach ($read as $key => $reads) {
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($reads["titre"]) . "</td>";
+                echo "<td><a href='musique.php?s=" . htmlspecialchars($reads["slug"]) . "'>" . htmlspecialchars($reads["titre"]) . "</a></td>";
                 echo "<td>" . htmlspecialchars($reads["chanteur"]) . "</td>";
                 if ($role === 'admin') {
                     echo "<td>
@@ -154,7 +161,5 @@ $role = $_SESSION['user']['role'];
 </body>
 
 </html>
-
-<form action="" method="post">
 
 </form>
