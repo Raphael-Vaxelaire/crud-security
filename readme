@@ -1,2 +1,16 @@
-# Projet de crud sécuriser
-Raphael Vaxelaire
+Projet CRUD Sécurisé
+
+Auteur : Raphaël Vaxelaire
+
+📌 Présentation
+
+Ce projet consiste en la réalisation d’une application web mettant en œuvre un CRUD sécurisé (Create, Read, Update, Delete).
+L’objectif principal est de permettre la gestion d’éléments stockés en base de données tout en respectant les bonnes pratiques de sécurité web (protection des données, authentification utilisateur et prévention des attaques courantes).
+
+Le projet a été développé dans un contexte pédagogique afin de comprendre :
+
+le fonctionnement d’une base de données relationnelle,
+
+la communication serveur ↔ base de données,
+
+et surtout la sécurisation d’une application web.
