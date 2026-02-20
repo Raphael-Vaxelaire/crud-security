@@ -21,6 +21,7 @@ try{
             "musique_id" => $musique_id,
         ]);
         header("location:index.php");
+        
         exit;
     } catch (PDOException $e) {
         echo $e->getMessage();

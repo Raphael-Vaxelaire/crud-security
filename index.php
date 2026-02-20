@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
         echo "<p>titre invalide</p>";
+        header("location:index.php");
         exit;
     }
 
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
         echo '<p>Le slug est obligatoire</p>';
+        header("location:index.php");
         exit;
     }
 
@@ -48,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
         echo "<p>chanteur est obligatoire</p>";
+        header("location:index.php");
         exit;
     }
 
